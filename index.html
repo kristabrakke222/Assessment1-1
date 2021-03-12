@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Invitation Page</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="script.js"></script>
+    <script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+        let src_l = [
+            "/images/banner1.jpg",
+            "/images/banner2.jpg",
+            "/images/banner3.jpg"
+        ];
+
+        let img_l = preloadImages(src_l);
+
+        setInterval (function() {
+            cyclebanner(src_l,"banner_img");
+        },3000);
+
+    });
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
+        </div>
+        <nav>
+            <ul class="topnav">
+                <li><a href="index.html" class="active">Home</a>
+                </li>
+                <li><a href="invitation.html">Invitation</a>
+                </li>
+                <li><a href="gallery.html">Gallery</a>
+                </li>
+                <li><a href="registration.html">Registration</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <img src="/images/banner1.jpg" id="banner_img">
+    <!-- <section id="bannerImages">
+	    Banner Images<br/>
+        <img src="images/banner1.jpg" alt="Banner"/>
+        <img src="images/banner2.jpg" alt="Banner"/>
+        <img src="images/banner3.jpg" alt="Banner"/>
+    </section> -->
+    
+    
+
+
+    <footer>This events site is for IT-FP3215 tasks.</footer>
+
+
+    
+</body>
+
+</html>

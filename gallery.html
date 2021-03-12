@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Invitation Page</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        let src_l = [
+            "/images/firefighter.jpg",
+            "/images/work.jpg",
+            "/images/silhouette.jpg",
+           "/images/event.jpg"
+        ];
+
+        let img_l = preloadImages(src_l);
+
+        //this below code will change the image visually
+         var id_l = ['img1','img2','img3','img4'];
+         for (id of id_l) {
+             console.log(id);
+             //document.getElementById(id);
+            document.getElementById(id).addEventListener("mouseover", function () {
+                this.style.width = "110%";
+                this.style.height = "110%";
+            });
+            document.getElementById(id).addEventListener("mouseleave", function () {
+                this.style.width = "100%";
+                this.style.height = "100%";
+            });
+        }
+
+    });
+    </script>
+
+    
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
+        </div>
+        <nav>
+            <ul class="topnav">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li><a href="invitation.html">Invitation</a>
+                </li>
+                <li><a href="gallery.html"  class="active">Gallery</a>
+                </li>
+                <li><a href="registration.html">Registration</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <section id="gallery">
+
+<div class="gallery">
+  <a target="_blank" href="images/firefighter.jpg">
+    <img src="images/firefighter.jpg" alt="firefighter" width="300" height="200" id="img1">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="images/work.jpg">
+    <img src="images/work.jpg" alt="work" width="300" height="200" id="img2">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="images/silhouette.jpg">
+    <img src="images/silhouette.jpg" alt="silhouette" width="300" height="200" id="img3">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="images/event.jpg">
+    <img src="images/event.jpg" alt="event" width="300" height="200" id="img4">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+    </section>
+
+
+
+    <footer>This events site is for IT-FP3215 tasks.
+    </footer>
+</body>
+
+</html>
