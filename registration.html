@@ -219,9 +219,6 @@
         }
 
 
- 
-
-
 
 
         // Add listeners
@@ -255,76 +252,4 @@
     </script>
 </body>
 
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-//start a new function here
- // PasswordVerify* (PhoneNumber (uses (xxx) xxx-xxxx format)
-    function checkphoneNumber() {
-        console.log("Verify Phone");
-
-        // Getting the value from the field
-        let val = document.getElementById('phoneNumber').value;
-        
-          // allow only letters and numbers
-        let pattern = /^[0-9a-zA-Z]+$/
-
-
-        // trimming any beginning or ending spaces
-        val = val.trim();
-
-}
-
-
-
-
-//start a new function here
- // Newsletter function* (radio box for yes/no)
-    function checkphoneNumber() {
-        console.log("Verify Phone");
-
-        // Getting the value from the field
-        let val = document.getElementById('phoneNumber').value;
-        
-          // allow only letters and numbers
-        let pattern = /^[0-9a-zA-Z]+$/
-
-
-        // trimming any beginning or ending spaces
-        val = val.trim();
-}
-
-    
-
-    // Add listeners
-    document.getElementById("userName").addEventListener("blur",function() { checkUserName(); });
-
-    document.getElementById("Password").addEventListener("blur",function() { checkPassword(); });
-
-    document.getElementById("passwordVerify").addEventListener("blur",function() { passwordVerify(); });
-
-    document.getElementById("firstName").addEventListener("blur",function() { checkfirstName(); });
-
-    document.getElementById("lastName").addEventListener("blur",function() { checklastName(); });
-
-    document.getElementById("email").addEventListener("blur",function() { checkemail(); });
-
-    document.getElementById("phoneNumber").addEventListener("blur",function() { checkphoneNumber(); });
-
-        
-
-
-
-  </script>
-</body>
 </html>
