@@ -28,38 +28,303 @@
     <section id="pageForm">
         <form action="#">
             <label for="userName">Username:</label>
-            <input type="text" name="userName" placeholder="Enter your Username" />
+            <input type="text" name="userName" placeholder="Enter your Username" id="userName" />
 
             <label for="Password">Password:
             </label>
-            <input type="password" name="password" placeholder="Enter your Password" />
+            <input type="password" name="password" placeholder="Enter your Password" id="Password" />
 
             <label for="passwordVerify">Verify your Password:
             </label>
-            <input type="password" name="passwordVerify" placeholder="Enter in your Password again" />
+            <input type="password" name="passwordVerify" placeholder="Enter in your Password again" id="passwordVerify" />
 
             <label for="firstName">First Name:
             </label>
-            <input type="text" name="firstName" placeholder="Enter your First Name" />
+            <input type="text" name="firstName" placeholder="Enter your First Name" id="firstName" />
 
-            <label for="hostName">Last Name:
+            <label for="lastName">Last Name:
             </label>
-            <input type="text" name="lastName" placeholder="Enter your Last Name" />
+            <input type="text" name="lastName" placeholder="Enter your Last Name" id="lastName" />
+
+
             <label for="email">Email:
             </label>
-            <input type="text" name="email" placeholder="Enter your Email Address" />
-			<label for="phoneNumber">Phone Number
+            <input type="text" name="email" placeholder="Enter your Email Address" id="email" />
+
+            <label for="phoneNumber">Phone Number
             </label>
-            <input type="text" name="lastName" placeholder="Enter your Phone Number" />
-			<label for="signUpNewsletter">Sign up for newsletter:
+            <input type="text" name="lastName" placeholder="Enter your Phone Number" id="phoneNumber" />
+
+
+            <label for="signUpNewsletter">Sign up for newsletter:
             </label>
-			  <input type="radio" name="signUpNewsletter" value="Yes" checked> Yes 
-				<input type="radio" name="signUpNewsletter" value="No"> No
+            <input type="radio" name="signUpNewsletter" value="Yes" checked> Yes
+            <input type="radio" name="signUpNewsletter" value="No"> No
             <input type="submit" value="Next step">
+
         </form>
     </section>
 
     <footer>This events site is for IT-FP3215 tasks.
     </footer>
+
+
+    <script>
+        /*
+    1) Add listeners to all fields so that the content is checked when the user leaves the field (onblur).
+    2) Add a final check when the "Next Step" button is clicked.
+    3) Have a function for each field to be checked
+
+    */
+
+        // Check the username entry....
+        function checkUserName() {
+            console.log("Checking User Name");
+
+            // Getting the value from the field
+            let val = document.getElementById('userName').value;
+
+            // trimming any beginning or ending spaces
+            val = val.trim();
+
+            // allow only letters and numbers
+            let pattern = /^[0-9a-zA-Z]+$/
+
+            // check to see if the entered value (val) matches the pattern
+            let ok = pattern.test(val);
+
+            if (!ok) {
+                document.getElementById('userName').value = "";
+                console.log("Please enter only numbers and letters for the username.");
+                document.getElementById('userName').focus();
+            }
+        }
+
+
+        //start a new function here
+        // Check the Password entry....must be a minimum 8 characters
+        function checkPassword() {
+            console.log("Checking Password");
+
+            // Getting the value from the field
+            let val = document.getElementById('Password').value;
+
+            if (val.length < 8) {
+                document.getElementById('Password').value = "";
+                console.log("Please enter a minimum of 8 characters.");
+                document.getElementById('Password').focus();
+            }
+        }
+
+
+        //start a new function here
+        // PasswordVerify ensure this matches password.
+        function passwordVerify() {
+            console.log("Verify Password");
+
+            // Getting the value from the field
+            let val = document.getElementById('passwordVerify').value;
+            let val1 = document.getElementById('Password').value;
+            //below will see if the values do not match
+            if (val !== val1) {
+                document.getElementById('passwordVerify').value = "";
+                console.log("Please make values match.");
+
+            }
+
+        }
+
+
+        function checkfirstName() {
+            console.log("Verify firstName");
+
+            let val = document.getElementById('firstName').value;
+            // trimming any beginning or ending spaces
+            val = val.trim();
+
+            // allow only letters
+            let pattern = /^[a-zA-Z]+$/
+
+            // check to see if the entered value (val) matches the pattern
+            let ok = pattern.test(val);
+
+            if (!ok) {
+                document.getElementById('firstName').value = "";
+                console.log("Please enter only letters.");
+                document.getElementById('firstName').focus();
+            }
+        }
+
+        function checklastName() {
+            console.log("Verify lastName");
+
+            let val = document.getElementById('lastName').value;
+            // trimming any beginning or ending spaces
+            val = val.trim();
+
+            // allow only letters
+            let pattern = /^[a-zA-Z]+$/
+
+            // check to see if the entered value (val) matches the pattern
+            let ok = pattern.test(val);
+
+            if (!ok) {
+                document.getElementById('lastName').value = "";
+                console.log("Please enter only letters.");
+                document.getElementById('lastName').focus();
+            }
+        }
+
+        function checkemail() {
+            console.log("Verify email");
+
+            let val = document.getElementById('email').value;
+            // trimming any beginning or ending spaces
+            val = val.trim();
+
+            // allow only letters
+            let pattern = /^[0-9a-zA-Z]+@[0-9a-zA-Z]+.[0-9a-zA-Z]+$/
+
+            // check to see if the entered value (val) matches the pattern
+            let ok = pattern.test(val);
+
+            if (!ok) {
+                document.getElementById('email').value = "";
+                console.log("Please use a valid format.");
+                document.getElementById('email').focus();
+            }
+        }
+
+
+        function checkphoneNumber() {
+            console.log("Verify phoneNumber");
+
+            let val = document.getElementById('phoneNumber').value;
+            // trimming any beginning or ending spaces
+            val = val.trim();
+
+            //phone must be uses (xxx) xxx-xxxx
+
+            //let pattern = /^[0-9a-zA-Z]+@[0-9a-zA-Z]+.[0-9a-zA-Z]+$/
+            let pattern = /^\(\d{3}\)\s\d{3}-\d{4}/
+
+            // check to see if the entered value (val) matches the pattern
+            let ok = pattern.test(val);
+
+            if (!ok) {
+                document.getElementById('phoneNumber').value = "";
+                console.log("Please use (xxx) xxx-xxxx");
+                document.getElementById('phoneNumber').focus();
+            }
+        }
+
+
+ 
+
+
+
+
+        // Add listeners
+        document.getElementById("userName").addEventListener("blur", function() {
+            checkUserName();
+        });
+
+        document.getElementById("Password").addEventListener("blur", function() {
+            checkPassword();
+        });
+
+        document.getElementById("passwordVerify").addEventListener("blur", function() {
+            passwordVerify();
+        });
+
+        document.getElementById("firstName").addEventListener("blur", function() {
+            checkfirstName();
+        });
+
+        document.getElementById("lastName").addEventListener("blur", function() {
+            checklastName();
+        });
+
+        document.getElementById("email").addEventListener("blur", function() {
+            checkemail();
+        });
+
+        document.getElementById("phoneNumber").addEventListener("blur", function() {
+            checkphoneNumber();
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+//start a new function here
+ // PasswordVerify* (PhoneNumber (uses (xxx) xxx-xxxx format)
+    function checkphoneNumber() {
+        console.log("Verify Phone");
+
+        // Getting the value from the field
+        let val = document.getElementById('phoneNumber').value;
+        
+          // allow only letters and numbers
+        let pattern = /^[0-9a-zA-Z]+$/
+
+
+        // trimming any beginning or ending spaces
+        val = val.trim();
+
+}
+
+
+
+
+//start a new function here
+ // Newsletter function* (radio box for yes/no)
+    function checkphoneNumber() {
+        console.log("Verify Phone");
+
+        // Getting the value from the field
+        let val = document.getElementById('phoneNumber').value;
+        
+          // allow only letters and numbers
+        let pattern = /^[0-9a-zA-Z]+$/
+
+
+        // trimming any beginning or ending spaces
+        val = val.trim();
+}
+
+    
+
+    // Add listeners
+    document.getElementById("userName").addEventListener("blur",function() { checkUserName(); });
+
+    document.getElementById("Password").addEventListener("blur",function() { checkPassword(); });
+
+    document.getElementById("passwordVerify").addEventListener("blur",function() { passwordVerify(); });
+
+    document.getElementById("firstName").addEventListener("blur",function() { checkfirstName(); });
+
+    document.getElementById("lastName").addEventListener("blur",function() { checklastName(); });
+
+    document.getElementById("email").addEventListener("blur",function() { checkemail(); });
+
+    document.getElementById("phoneNumber").addEventListener("blur",function() { checkphoneNumber(); });
+
+        
+
+
+
+  </script>
 </body>
 </html>
