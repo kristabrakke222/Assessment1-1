@@ -29,31 +29,43 @@
         <form action="#">
             <label for="userName">Username:</label>
             <input type="text" name="userName" placeholder="Enter your Username" id="userName" />
+            <div id="userNameHelp"></div>
+            
 
             <label for="Password">Password:
             </label>
             <input type="password" name="password" placeholder="Enter your Password" id="Password" />
+            <div id="PasswordHelp"></div>
+
 
             <label for="passwordVerify">Verify your Password:
             </label>
             <input type="password" name="passwordVerify" placeholder="Enter in your Password again" id="passwordVerify" />
+            <div id="passwordVerifyHelp"></div>
+
 
             <label for="firstName">First Name:
             </label>
             <input type="text" name="firstName" placeholder="Enter your First Name" id="firstName" />
+            <div id="firstNameHelp"></div>
+
 
             <label for="lastName">Last Name:
             </label>
             <input type="text" name="lastName" placeholder="Enter your Last Name" id="lastName" />
+            <div id="lastNameHelp"></div>
 
 
             <label for="email">Email:
             </label>
             <input type="text" name="email" placeholder="Enter your Email Address" id="email" />
+            <div id="emailHelp"></div>
+
 
             <label for="phoneNumber">Phone Number
             </label>
             <input type="text" name="lastName" placeholder="Enter your Phone Number" id="phoneNumber" />
+            <div id="phoneNumberHelp"></div>
 
 
             <label for="signUpNewsletter">Sign up for newsletter:
@@ -93,10 +105,12 @@
             // check to see if the entered value (val) matches the pattern
             let ok = pattern.test(val);
 
-            if (!ok) {
+             if (!ok) {
                 document.getElementById('userName').value = "";
-                console.log("Please enter only numbers and letters for the username.");
+                document.getElementById('userNameHelp').innerHTML = "Please enter only numbers and letters for the username.";
                 document.getElementById('userName').focus();
+            } else {
+              document.getElementById('userNameHelp').innerHTML = "";
             }
         }
 
@@ -111,8 +125,10 @@
 
             if (val.length < 8) {
                 document.getElementById('Password').value = "";
-                console.log("Please enter a minimum of 8 characters.");
+                document.getElementById ("PasswordHelp").innerHTML="Please enter a minimum of 8 characters."
                 document.getElementById('Password').focus();
+            } else {
+              document.getElementById('PasswordHelp').innerHTML = "";
             }
         }
 
@@ -128,8 +144,9 @@
             //below will see if the values do not match
             if (val !== val1) {
                 document.getElementById('passwordVerify').value = "";
-                console.log("Please make values match.");
-
+                 document.getElementById ("passwordVerifyHelp").innerHTML="Please make values match.";
+                } else {
+              document.getElementById('passwordVerifyHelp').innerHTML = "";
             }
 
         }
@@ -150,10 +167,13 @@
 
             if (!ok) {
                 document.getElementById('firstName').value = "";
-                console.log("Please enter only letters.");
+                 document.getElementById ("firstNameHelp").innerHTML="Please enter only letters.";
                 document.getElementById('firstName').focus();
+                   } else {
+              document.getElementById('firstNameHelp').innerHTML = "";
             }
         }
+        
 
         function checklastName() {
             console.log("Verify lastName");
@@ -170,8 +190,10 @@
 
             if (!ok) {
                 document.getElementById('lastName').value = "";
-                console.log("Please enter only letters.");
+                document.getElementById ("lastNameHelp").innerHTML="Please enter only letters";
                 document.getElementById('lastName').focus();
+                  } else {
+              document.getElementById('lastNameHelp').innerHTML = "";
             }
         }
 
@@ -190,8 +212,10 @@
 
             if (!ok) {
                 document.getElementById('email').value = "";
-                console.log("Please use a valid format.");
+                document.getElementById ("emailHelp").innerHTML="Please use a valid format.";
                 document.getElementById('email').focus();
+                } else {
+              document.getElementById('emailHelp').innerHTML = "";
             }
         }
 
@@ -213,12 +237,12 @@
 
             if (!ok) {
                 document.getElementById('phoneNumber').value = "";
-                console.log("Please use (xxx) xxx-xxxx");
+                document.getElementById ("phoneNumberHelp").innerHTML="Please use (xxx) xxx-xxxx";
                 document.getElementById('phoneNumber').focus();
+                 } else {
+              document.getElementById('phoneNumberHelp').innerHTML = "";
             }
         }
-
-
 
 
         // Add listeners
