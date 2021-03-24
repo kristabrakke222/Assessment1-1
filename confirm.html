@@ -31,12 +31,67 @@
 			Process content to display content on screen
 			
 			-->
-            
+     <div id="userName"></div>       
+       <div id="password"></div>  
+     <div id="passwordVerify"></div>  
+ <div id="firstName"></div>  
+<div id="lastName"></div>
+<div id="email"></div>
+<div id="phoneNumber"></div>
+<div id="signUpNewsletter"></div>
+<div id="dogs"></div>
+<div id="travel"></div>
+<div id="pizza"></div>
+<div id="comments"></div>
+<div id="referral"></div>
+
 
     </section>
 
     <footer>This events site is for IT-FP3215 tasks.
     </footer>
+
+    <script>
+      //retrieve values from our cookies
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+document.getElementById("userName").innerHTML="User Name: "+getCookie("userName")
+document.getElementById("password").innerHTML="Password:  "+getCookie("password")
+document.getElementById("passwordVerify").innerHTML="passwordVerify:  "+getCookie("passwordVerify")
+document.getElementById("firstName").innerHTML="First Name: "+getCookie("firstName")
+document.getElementById("lastName").innerHTML="Last Name:  "+getCookie("lastName")
+document.getElementById("email").innerHTML="email:  "+getCookie("email")
+
+document.getElementById("phoneNumber").innerHTML="Phone Number:  "+getCookie("phoneNumber")
+
+document.getElementById("signUpNewsletter").innerHTML="Sign Up Newsletter:  "+getCookie("signUpNewsletter")
+
+
+document.getElementById("dogs").innerHTML="Do you like dogs:  "+getCookie("dogs")
+
+
+document.getElementById("travel").innerHTML="Do you like to travel:  "+getCookie("travel")
+
+document.getElementById("pizza").innerHTML="What kind of pizza do you like:  "+getCookie("pizza")
+
+document.getElementById("comments").innerHTML="Comments:  "+getCookie("comments")
+document.getElementById("referral").innerHTML="Referral:  "+getCookie("referral")
+
+      </script>
 </body>
 
 </html>
