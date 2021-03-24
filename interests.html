@@ -26,10 +26,10 @@
         </nav>
     </header>
     <section id="pageForm">
-        <form action="#">
+        <form action="#" id="form">
 			
             <!--
-			Include other form fields here
+	Storing information below from the previous form
 			
 			-->
             <input type="hidden" name="userName"/>
@@ -38,15 +38,76 @@
             <input type="hidden" name="firstName" />
             <input type="hidden" name="lastName" />
             <input type="hidden" name="email"/>
-            <input type="hidden" name="lastName" />
+            <input type="hidden" name="phoneNumber" />
 			<input type="hidden" name="signUpNewsletter"/ >
 			
+<input type="checkbox" name="dogs" id="dogs"/>
+<label for="dogs"> I like dogs</label>
+<input type="checkbox" name="travel" id="travel"/>
+<label for="travel"> I like to travel</label>
+<input type="checkbox" name="pizza" id="pizza"/>
+<label for="pizza"> I like pepperoni pizza</label>
+
+    <!--
+	below is the free form text area
+			
+			-->
+
+<textarea name="comments"></textarea>
+
+<input type="text" name="referral" />
+
             <input type="submit" value="Register">
         </form>
     </section>
 
     <footer>This events site is for IT-FP3215 tasks.
     </footer>
+     
+  <script>
+  let search = window.location.search;
+      search = search.substring(1);
+      let values = {};
+      search.split('&').forEach((element) => {
+        let splitter = element.split('=');
+        values[splitter[0]] = splitter[1];
+      });
+console.log (values)
+      document.querySelector('[name="userName"]').value = values.userName;
+ document.querySelector('[name="password"]').value = values.password;
+ document.querySelector('[name="passwordVerify"]').value = values.passwordVerify;
+document.querySelector('[name="firstName"]').value = values.firstName;
+document.querySelector('[name="lastName"]').value = values.lastName;
+document.querySelector('[name="email"]').value = values.email;
+document.querySelector('[name="phoneNumber"]').value = values.phoneNumber;
+document.querySelector('[name="signUpNewsletter"]').value = values.signUpNewsletter;
+
+document.getElementById('form').addEventListener("submit", function(event) {
+  event.preventDefault();
+  var formData = new FormData(document.getElementById('form'));
+  setCookie("userName", formData.get("userName"), 365);
+setCookie("password", formData.get("password"), 365);
+setCookie("passwordVerify", formData.get("passwordVerify"), 365);
+setCookie("firstName", formData.get("firstName"), 365);
+setCookie("lastName", formData.get("lastName"), 365);
+setCookie("email", formData.get("email"), 365);
+setCookie("phoneNumber", formData.get("phoneNumber"), 365);
+setCookie("signUpNewsletter", formData.get("signUpNewsletter"), 365);
+setCookie("dogs", formData.get("dogs"), 365);
+setCookie("travel", formData.get("travel"), 365);
+setCookie("pizza", formData.get("pizza"), 365);
+setCookie("comments", formData.get("comments"), 365);
+setCookie("referral", formData.get("referral"), 365);
+window.location.assign("./confirm.html")
+})
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+          </script>
 </body>
 
 </html>
