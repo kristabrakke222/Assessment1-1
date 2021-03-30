@@ -25,8 +25,9 @@
 
         </nav>
     </header>
-    <section id="pageForm">
-        <form action="interests.html">
+    <section>
+        <form action="interests.html" id="pageForm">
+		
             <label for="userName">Username:</label>
             <input type="text" name="userName" placeholder="Enter your Username" id="userName" />
             <div id="userNameHelp"></div>
@@ -112,6 +113,7 @@
             } else {
               document.getElementById('userNameHelp').innerHTML = "";
             }
+			return ok
         }
 
 
@@ -130,6 +132,7 @@
             } else {
               document.getElementById('PasswordHelp').innerHTML = "";
             }
+			return !(val.length<8)
         }
 
 
@@ -148,7 +151,7 @@
                 } else {
               document.getElementById('passwordVerifyHelp').innerHTML = "";
             }
-
+			return val === val1
         }
 
 
@@ -172,6 +175,7 @@
                    } else {
               document.getElementById('firstNameHelp').innerHTML = "";
             }
+			return ok
         }
         
 
@@ -195,6 +199,7 @@
                   } else {
               document.getElementById('lastNameHelp').innerHTML = "";
             }
+			return ok
         }
 
         function checkemail() {
@@ -217,6 +222,7 @@
                 } else {
               document.getElementById('emailHelp').innerHTML = "";
             }
+			return ok
         }
 
 
@@ -242,38 +248,39 @@
                  } else {
               document.getElementById('phoneNumberHelp').innerHTML = "";
             }
+			return ok
         }
 
-
+	let checked=false
         // Add listeners
-        document.getElementById("userName").addEventListener("blur", function() {
-            checkUserName();
-        });
-
-        document.getElementById("Password").addEventListener("blur", function() {
-            checkPassword();
-        });
-
-        document.getElementById("passwordVerify").addEventListener("blur", function() {
-            passwordVerify();
-        });
-
-        document.getElementById("firstName").addEventListener("blur", function() {
-            checkfirstName();
-        });
-
-        document.getElementById("lastName").addEventListener("blur", function() {
-            checklastName();
-        });
-
-        document.getElementById("email").addEventListener("blur", function() {
-            checkemail();
-        });
-
-        document.getElementById("phoneNumber").addEventListener("blur", function() {
-            checkphoneNumber();
-        });
-    </script>
+       document.getElementById("pageForm").addEventListener("submit",function(event){
+		if (!checked){
+		event.preventDefault()
+		if (!checkUserName()) {
+			return;
+		} else if (!checkPassword()) {
+			return;
+		}
+		else if (!passwordVerify()) {
+			return;
+		}
+			else if (!checkfirstName()) {
+			return;
+			}
+			else if (!checklastName()) {
+			return;
+			}
+				else if (!checkemail()) {
+			return;
+			}
+				else if (!checkphoneNumber()) {
+			return;
+			}
+			checked=true
+			document.getElementById("pageForm").submit()
+			}
+	   })
+	   </script>
 </body>
 
 </html>
